@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/* Hacemos uso del modelo DatosP y lo renombramos */
+use App\Models\DatosP as ModelsDatosP;
+
 class ApiDatosPController extends Controller
 {
     /**
@@ -13,7 +16,7 @@ class ApiDatosPController extends Controller
      */
     public function index()
     {
-        //
+        return ModelsDatosP::get();
     }
 
     /**
