@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                   {{--  {{ __('You are logged in!') }} --}}
+
+                    @{{ message }}
 
                     <table class="table">
                         <thead>
