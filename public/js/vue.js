@@ -1,3 +1,6 @@
+/* No funciona */
+/* const { Toast } = require("bootstrap"); */
+
 /* Variable con nueva instancia de vue */
 var app = new Vue({
     /* el id que dispara bue esta en el div con la etiqueta #app */
@@ -6,6 +9,7 @@ var app = new Vue({
         datos: [],
         message: ''
     },
+    /* Obtengo los datos por medio del metodo GET del Api */
     methods: {
         getDatos() {
             let url = 'http://127.0.0.1:8000/api/datosp';
@@ -19,17 +23,40 @@ var app = new Vue({
             console.log('nuevo dato');
 
             Swal.mixin({
-                input: 'text',
+
                 confirmButtonText: 'Next &rarr;',
                 showCancelButton: true,
-                animation: false,
+                /*  animation: false, */
                 progressSteps: ['1', '2', '3']
             }).queue([{
-                    title: 'Question 1',
-                    text: 'Chaining swal2 modals is easy'
+                    title: 'Escribe el nombre completo:',
+                    text: 'Nombre completo',
+                    input: 'text',
+                    inputValidator: (value) => {
+                        if (!value) {
+                            toastr.error('Debes digitar un nombre', 'Error');
+                            return ' '
+                        }
+                    }
                 },
-                'Question 2',
-                'Question 3'
+                {
+                    title: 'Selecciona el puesto:',
+                    text: 'Posición de empleado',
+                    input: 'select',
+                    inputOptions: {
+                        'Roles': {
+                            Auditor: 'Auditor',
+                            Soporte: 'Soporte',
+                            Seguridad: 'Seguridad'
+                        }
+                    },
+                    inputPlaceholder: 'Selecciona una posición',
+                },
+                {
+                    title: 'Escribe el salario de este empleado:',
+                    text: 'Este campo acepta decimales:',
+                    input: 'number'
+                },
 
             ]).then((result) => {
                 if (result.value) {
