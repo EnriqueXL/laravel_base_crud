@@ -35,8 +35,8 @@
                                     <td>@{{dato.nombre}}</td>
                                     <td>@{{dato.posicion}}</td>
                                     <td>@{{dato.salario}}</td>
-                                    <td><button type="button"class="btn btn-outline-info">Info</button>
-                                        <button type="button"class="btn btn-outline-danger">Danger</button>
+                                    <td><button type="button"class="btn btn-outline-info">Editar</button>
+                                        <button type="button"class="btn btn-outline-danger">Eliminar</button>
                                     </td>
                                 </tr>
                             </tbody>
